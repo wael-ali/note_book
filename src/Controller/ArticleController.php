@@ -15,5 +15,12 @@ class ArticleController
     # code...
     return new Response ("html page!!!!!!!!!");
   }
+  /**
+   * @Route("/news/{slug}")
+   */
+  public function show($slug)
+  {
+    return new Response(sprintf("Hier you find news about: %s", $slug));
+  }
   
 }
