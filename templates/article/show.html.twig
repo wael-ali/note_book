@@ -1,6 +1,18 @@
  {% extends 'base.html.twig' %}
+ {% block stylesheets %}
+     {{ parent()  }}
+     <link rel="stylesheet" href="{{ asset('css/show.css') }}">
+ {% endblock %}
 {% block body %}
-     <h1> {{ title }} </h1>
+    <div class="note-title">
+        <img src="{{ asset('images/pencil2.jpg') }}" alt="pencil2">
+        <div class="article-title-info">
+            <h1> {{ title }} </h1>
+            <span class="article-at">created at 7.7.2019 </span>
+            <span class="js-like-article-count">5</span>
+            <a href="{{ path('article_toggle_heart', {slug: slug}) }}" class="far fa-heart js-heart-article"></a>
+        </div>
+    </div>
 
     <div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci alias asperiores aspernatur aut dicta earum, enim eum ex ipsa quia recusandae totam unde ut! Laborum nesciunt nihil officia recusandae voluptatibus.</p>
@@ -17,5 +29,10 @@
         <ul>
     </div>
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/note_show.js') }}"></script>
+ {% endblock %}
 
 
